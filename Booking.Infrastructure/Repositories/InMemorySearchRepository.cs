@@ -1,5 +1,5 @@
 using Booking.Application.DTOs.Responses;
-using System.Threading.Tasks;
+using Booking.Application.Exceptions;
 
 namespace Booking.Application.Repositories
 {
@@ -13,7 +13,7 @@ namespace Booking.Application.Repositories
         {
             _searchResults[searchId] = searchResponse;
             _searchTimes[searchId] = DateTime.UtcNow;
-            
+
             foreach (var option in searchResponse.Options)
             {
                 _optionsByCode[option.OptionCode] = option;
@@ -25,7 +25,7 @@ namespace Booking.Application.Repositories
         {
             if (!_optionsByCode.TryGetValue(optionCode, out var option))
             {
-                throw new KeyNotFoundException("Option not found");
+                throw new NotFoundException("Option not found");
             }
             return await Task.FromResult(option);
         }
@@ -53,4 +53,4 @@ namespace Booking.Application.Repositories
             await Task.CompletedTask;
         }
     }
-} 
+}

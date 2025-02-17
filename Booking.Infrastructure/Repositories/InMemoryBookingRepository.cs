@@ -1,5 +1,5 @@
+using Booking.Application.Exceptions;
 using Booking.Domain.Enums;
-using System.Threading.Tasks;
 
 namespace Booking.Application.Repositories
 {
@@ -17,7 +17,7 @@ namespace Booking.Application.Repositories
         {
             if (!_bookings.TryGetValue(bookingCode, out var booking))
             {
-                throw new KeyNotFoundException("Booking not found");
+                throw new NotFoundException("Booking not found");
             }
             return await Task.FromResult(booking);
         }
@@ -31,4 +31,4 @@ namespace Booking.Application.Repositories
             await Task.CompletedTask;
         }
     }
-} 
+}

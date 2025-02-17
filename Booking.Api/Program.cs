@@ -1,3 +1,4 @@
+using Booking.Api.Middleware;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services;
@@ -41,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 

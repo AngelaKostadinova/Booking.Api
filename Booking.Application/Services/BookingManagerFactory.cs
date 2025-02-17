@@ -11,7 +11,9 @@ namespace Booking.Application.Services
         private readonly ISearchRepository _searchRepository;
         private readonly IBookingRepository _bookingRepository;
 
-        public BookingManagerFactory(IExternalApiService externalApiService, ISearchRepository searchRepository, IBookingRepository bookingRepository)
+        public BookingManagerFactory(IExternalApiService externalApiService,
+            ISearchRepository searchRepository,
+            IBookingRepository bookingRepository)
         {
             _externalApiService = externalApiService;
             _searchRepository = searchRepository;

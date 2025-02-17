@@ -3,6 +3,7 @@ using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services.WebApi.Services;
+using System.Security.Cryptography;
 
 namespace Booking.Application.Services
 {
@@ -33,6 +34,7 @@ namespace Booking.Application.Services
                     HotelCode = h.HotelCode.ToString(),
                     FlightCode = f.FlightCode.ToString(),
                     ArrivalAirport = request.Destination,
+                    Price = RandomNumberGenerator.GetInt32(100, 1000)
                 }).ToList()
             };
         }

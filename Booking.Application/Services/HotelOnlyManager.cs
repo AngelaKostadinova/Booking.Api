@@ -3,12 +3,15 @@ using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services.WebApi.Services;
+using System.Security.Cryptography;
 
 namespace Booking.Application.Services
 {
     public class HotelOnlyManager : BaseBookingManager
     {
-        public HotelOnlyManager(IExternalApiService externalApiService, ISearchRepository searchRepository, IBookingRepository bookingRepository)
+        public HotelOnlyManager(IExternalApiService externalApiService,
+            ISearchRepository searchRepository,
+            IBookingRepository bookingRepository)
             : base(externalApiService, searchRepository, bookingRepository)
         {
         }
@@ -24,7 +27,8 @@ namespace Booking.Application.Services
                     OptionCode = Guid.NewGuid().ToString(),
                     HotelCode = h.HotelCode.ToString(),
                     FlightCode = string.Empty,
-                    ArrivalAirport = request.Destination
+                    ArrivalAirport = request.Destination,
+                    Price = RandomNumberGenerator.GetInt32(100, 1000)
                 }).ToList()
             };
         }

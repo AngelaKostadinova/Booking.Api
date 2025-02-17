@@ -7,7 +7,9 @@ namespace Booking.Application.Services
 {
     public class LastMinuteHotelsManager : HotelOnlyManager
     {
-        public LastMinuteHotelsManager(IExternalApiService externalApiService, ISearchRepository searchRepository, IBookingRepository bookingRepository)
+        public LastMinuteHotelsManager(IExternalApiService externalApiService,
+            ISearchRepository searchRepository,
+            IBookingRepository bookingRepository)
             : base(externalApiService, searchRepository, bookingRepository)
         {
         }
@@ -19,7 +21,7 @@ namespace Booking.Application.Services
             // Apply last minute discount
             foreach (var option in result.Options)
             {
-                option.Price *= 0.8; // 20% discount
+                option.Price *= 0.8;
             }
 
             return result;

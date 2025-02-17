@@ -40,12 +40,12 @@ namespace Booking.Application.Services
                 var option = await _searchRepository.GetOptionByCodeAsync(request.OptionCode);
 
                 var bookingCode = GenerateBookingCode();
-                var sleepTime = Random.Shared.Next(30, 61);
+                var sleepTime = Random.Shared.Next(30, 60);
 
                 var bookingInfo = new BookingInfo
                 {
                     BookingCode = bookingCode,
-                    BookingTime = DateTime.UtcNow,
+                    BookingTime = DateTime.Now,
                     SleepTime = sleepTime,
                     Status = BookingStatusEnum.Pending,
                     SearchType = GetType().Name,

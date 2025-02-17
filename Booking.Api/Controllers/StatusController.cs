@@ -16,7 +16,7 @@ namespace Booking.Api.Controllers
             _defaultManager = defaultManager;
         }
 
-        [HttpPost] // should this be get?
+        [HttpPost]
         public async Task<ActionResult<CheckStatusResponse>> CheckStatus([FromBody] CheckStatusRequest request)
         {
             try

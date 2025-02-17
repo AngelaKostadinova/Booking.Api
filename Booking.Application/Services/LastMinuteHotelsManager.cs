@@ -1,12 +1,14 @@
 ﻿using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
+using Booking.Application.Repositories;
 
 namespace Booking.Application.Services
 {
     public class LastMinuteHotelsManager : HotelOnlyManager
     {
-        public LastMinuteHotelsManager(IExternalApiService externalApiService) : base(externalApiService)
+        public LastMinuteHotelsManager(IExternalApiService externalApiService, ISearchRepository searchRepository, IBookingRepository bookingRepository)
+            : base(externalApiService, searchRepository, bookingRepository)
         {
         }
 

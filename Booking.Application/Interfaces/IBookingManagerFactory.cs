@@ -2,7 +2,7 @@
 
 namespace Booking.Application.Interfaces
 {
-    public interface IManagerFactory
+    public interface IBookingManagerFactory
     {
         IBookingManager CreateManager(SearchRequest request);
     }

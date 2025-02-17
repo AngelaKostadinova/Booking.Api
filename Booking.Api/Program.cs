@@ -1,4 +1,5 @@
 using Booking.Application.Interfaces;
+using Booking.Application.Repositories;
 using Booking.Application.Services;
 using Booking.Infrastructure.Services;
 
@@ -18,7 +19,13 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<IExternalApiService, ExternalApiService>();
 
 // Register IManagerFactory and its implementation
-builder.Services.AddScoped<IManagerFactory, ManagerFactory>();
+builder.Services.AddScoped<IBookingManagerFactory, BookingManagerFactory>();
+
+// Add these lines after the existing service registrations
+builder.Services.AddSingleton<ISearchRepository, InMemorySearchRepository>();
+builder.Services.AddSingleton<IBookingRepository, InMemoryBookingRepository>();
+
+builder.Services.AddScoped<HotelOnlyManager>();
 
 var app = builder.Build();
 

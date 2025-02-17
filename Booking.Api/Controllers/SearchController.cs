@@ -9,9 +9,9 @@ namespace Booking.Api.Controllers
     [ApiController]
     public class SearchController : ControllerBase
     {
-        private readonly IManagerFactory _managerFactory;
+        private readonly IBookingManagerFactory _managerFactory;
 
-        public SearchController(IManagerFactory managerFactory)
+        public SearchController(IBookingManagerFactory managerFactory)
         {
             _managerFactory = managerFactory;
         }

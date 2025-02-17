@@ -64,7 +64,7 @@ namespace Booking.Application.Services
             public async Task<CheckStatusResponse> CheckStatus(CheckStatusRequest request)
             {
                 var booking = await _bookingRepository.GetBookingAsync(request.BookingCode);
-                var elapsedTime = (DateTime.UtcNow - booking.BookingTime).TotalSeconds;
+                var elapsedTime = (DateTime.Now - booking.BookingTime).TotalSeconds;
 
                 if (elapsedTime < booking.SleepTime)
                 {

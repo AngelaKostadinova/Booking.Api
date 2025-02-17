@@ -43,6 +43,7 @@ namespace Booking.Api.Middleware
                 NotFoundException => (int)HttpStatusCode.NotFound,
                 ValidationException => (int)HttpStatusCode.BadRequest,
                 System.ApplicationException => (int)HttpStatusCode.BadRequest,
+                InvalidOperationException => (int)HttpStatusCode.BadRequest,
                 UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
                 _ => (int)HttpStatusCode.InternalServerError
             };

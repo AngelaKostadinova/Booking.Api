@@ -22,6 +22,11 @@ namespace Booking.Application.Services
 
         public IBookingManager CreateManager(SearchRequest request)
         {
+            if (request.FromDate.Date < DateTime.Now.Date)
+            {
+                throw new InvalidOperationException("Cannot search in the past.");
+            }
+
             if (string.IsNullOrEmpty(request.DepartureAirport))
             {
                 if ((request.FromDate - DateTime.Now).TotalDays <= 45)

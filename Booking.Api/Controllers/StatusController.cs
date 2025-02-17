@@ -16,19 +16,12 @@ namespace Booking.Api.Controllers
             _defaultManager = defaultManager;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<CheckStatusResponse>> CheckStatus([FromBody] CheckStatusRequest request)
+        [HttpGet("{bookingCode}")]
+        public async Task<ActionResult<CheckStatusResponse>> CheckStatus(string bookingCode)
         {
-            try
-            {
+                var request = new CheckStatusRequest { BookingCode = bookingCode };
                 var result = await _defaultManager.CheckStatus(request);
-
                 return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
     }
 }

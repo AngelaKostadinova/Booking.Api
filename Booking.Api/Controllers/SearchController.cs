@@ -19,17 +19,10 @@ namespace Booking.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<SearchResponse>> Search([FromBody] SearchRequest request)
         {
-            try
-            {
                 var manager = _managerFactory.CreateManager(request);
                 var result = await manager.Search(request);
 
                 return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
     }
 }

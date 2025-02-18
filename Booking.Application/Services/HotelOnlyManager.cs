@@ -1,10 +1,11 @@
 ﻿using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
+using Booking.Application.Exceptions;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services.WebApi.Services;
-using System.Security.Cryptography;
 using Booking.Application.Utils;
+using System.Security.Cryptography;
 
 namespace Booking.Application.Services
 {
@@ -20,6 +21,11 @@ namespace Booking.Application.Services
         protected override async Task<SearchResponse> PerformSearch(SearchRequest request)
         {
             var hotels = await _externalApiService.GetHotelsAsync(request.Destination);
+
+            if (!hotels.Any())
+            {
+                throw new NotFoundException($"No hotels found for destination: {request.Destination}");
+            }
 
             return new SearchResponse
             {

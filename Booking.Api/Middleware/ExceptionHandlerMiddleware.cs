@@ -1,6 +1,7 @@
 using Booking.Application.Exceptions;
 using System.Net;
 using System.Text.Json;
+using ApplicationException = System.ApplicationException;
 
 namespace Booking.Api.Middleware
 {
@@ -42,7 +43,7 @@ namespace Booking.Api.Middleware
             {
                 NotFoundException => (int)HttpStatusCode.NotFound,
                 ValidationException => (int)HttpStatusCode.BadRequest,
-                System.ApplicationException => (int)HttpStatusCode.BadRequest,
+                ApplicationException => (int)HttpStatusCode.BadRequest,
                 InvalidOperationException => (int)HttpStatusCode.BadRequest,
                 UnauthorizedAccessException => (int)HttpStatusCode.Unauthorized,
                 _ => (int)HttpStatusCode.InternalServerError

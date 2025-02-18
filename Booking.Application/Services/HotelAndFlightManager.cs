@@ -1,5 +1,6 @@
 ﻿using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
+using Booking.Application.Exceptions;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services.WebApi.Services;
@@ -28,6 +29,17 @@ namespace Booking.Application.Services
 
             var hotels = await hotelsTask;
             var flights = await flightsTask;
+
+            if (!hotels.Any())
+            {
+                throw new NotFoundException($"No hotels found for destination: {request.Destination}");
+            }
+
+            if (!flights.Any())
+            {
+                throw new NotFoundException(
+                    $"No flights found from {request.DepartureAirport} to {request.Destination}");
+            }
 
             return new SearchResponse
             {

@@ -2,7 +2,7 @@
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Exceptions;
 using Booking.Application.Interfaces;
-using Booking.Application.Repositories;
+using Booking.Application.Interfaces.Repositories;
 using Booking.Application.Services.WebApi.Services;
 using Booking.Application.Utils;
 using System.Security.Cryptography;

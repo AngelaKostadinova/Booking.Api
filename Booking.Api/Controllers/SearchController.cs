@@ -1,8 +1,8 @@
-﻿using Booking.Application.DTOs.Requests;
+﻿using Booking.Api.Authentication;
+using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Booking.Api.Authorization;
 
 namespace Booking.Api.Controllers
 {
@@ -21,10 +21,10 @@ namespace Booking.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<SearchResponse>> Search([FromBody] SearchRequest request)
         {
-                var manager = _managerFactory.CreateManager(request);
-                var result = await manager.Search(request);
+            var manager = _managerFactory.CreateManager(request);
+            var result = await manager.Search(request);
 
-                return Ok(result);
+            return Ok(result);
         }
     }
 }

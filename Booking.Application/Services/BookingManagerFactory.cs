@@ -1,7 +1,7 @@
 ﻿
 using Booking.Application.DTOs.Requests;
 using Booking.Application.Interfaces;
-using Booking.Application.Repositories;
+using Booking.Application.Interfaces.Repositories;
 using Microsoft.Extensions.Configuration;
 
 namespace Booking.Application.Services

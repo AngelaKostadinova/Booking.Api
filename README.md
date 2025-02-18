@@ -19,7 +19,7 @@ dotnet user-secrets set "ApiKey" "bGmSysSfLBFWGfGoYj4DFHa00aMQVVgGg3eH8EurKIqYHb
 ```
 
 ### API Authentication
-All API endpoints require API key authentication (not authorization). The API key verifies the identity of the caller but does not provide different levels of access.
+All API endpoints require API key authentication. The API key verifies the identity of the caller but does not provide different levels of access.
 
 #### Using Swagger UI
 1. Open the Swagger UI

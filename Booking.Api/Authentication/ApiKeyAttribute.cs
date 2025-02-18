@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Booking.Api.Authorization
+namespace Booking.Api.Authentication
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class ApiKeyAttribute : Attribute, IAsyncActionFilter
@@ -28,4 +28,4 @@ namespace Booking.Api.Authorization
             await next();
         }
     }
-} 
+}

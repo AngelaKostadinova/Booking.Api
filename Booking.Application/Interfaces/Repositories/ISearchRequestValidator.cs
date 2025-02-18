@@ -1,6 +1,6 @@
 using Booking.Application.DTOs.Requests;
 
-namespace Booking.Application.Interfaces
+namespace Booking.Application.Interfaces.Repositories
 {
     public interface ISearchRequestValidator
     {

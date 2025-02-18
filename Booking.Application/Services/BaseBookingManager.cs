@@ -1,9 +1,9 @@
 ﻿using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
-using Booking.Application.Repositories;
-using Booking.Domain.Enums;
+using Booking.Application.Interfaces.Repositories;
 using Booking.Application.Utils;
+using Booking.Domain.Enums;
 
 namespace Booking.Application.Services
 {

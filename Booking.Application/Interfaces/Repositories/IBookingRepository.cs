@@ -1,7 +1,6 @@
 using Booking.Domain.Enums;
-using System.Threading.Tasks;
 
-namespace Booking.Application.Repositories
+namespace Booking.Application.Interfaces.Repositories
 {
     public interface IBookingRepository
     {
@@ -9,4 +8,4 @@ namespace Booking.Application.Repositories
         Task<BookingInfo> GetBookingAsync(string bookingCode);
         Task UpdateBookingStatusAsync(string bookingCode, BookingStatusEnum status);
     }
-} 
+}

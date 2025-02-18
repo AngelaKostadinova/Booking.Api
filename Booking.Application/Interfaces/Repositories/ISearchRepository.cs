@@ -1,7 +1,6 @@
 using Booking.Application.DTOs.Responses;
-using System.Threading.Tasks;
 
-namespace Booking.Application.Repositories
+namespace Booking.Application.Interfaces.Repositories
 {
     public interface ISearchRepository
     {
@@ -9,4 +8,4 @@ namespace Booking.Application.Repositories
         Task<Option> GetOptionByCodeAsync(string optionCode);
         Task ClearOldSearchesAsync(TimeSpan threshold);
     }
-} 
+}

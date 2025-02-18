@@ -1,5 +1,5 @@
 using Booking.Application.DTOs.Requests;
-using Booking.Application.Interfaces;
+using Booking.Application.Interfaces.Repositories;
 using System.ComponentModel.DataAnnotations;
 
 public class SearchRequestValidator : ISearchRequestValidator

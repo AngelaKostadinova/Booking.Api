@@ -1,4 +1,5 @@
 using Booking.Application.Exceptions;
+using Booking.Application.Interfaces.Repositories;
 using Booking.Domain.Enums;
 
 namespace Booking.Application.Repositories

@@ -1,5 +1,6 @@
 using Booking.Api.Middleware;
 using Booking.Application.Interfaces;
+using Booking.Application.Interfaces.Repositories;
 using Booking.Application.Repositories;
 using Booking.Application.Services;
 using Booking.Infrastructure.Services;

@@ -1,5 +1,6 @@
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Exceptions;
+using Booking.Application.Interfaces.Repositories;
 
 namespace Booking.Application.Repositories
 {

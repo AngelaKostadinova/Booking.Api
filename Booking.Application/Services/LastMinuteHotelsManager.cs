@@ -1,7 +1,7 @@
 ﻿using Booking.Application.DTOs.Requests;
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
-using Booking.Application.Repositories;
+using Booking.Application.Interfaces.Repositories;
 
 namespace Booking.Application.Services
 {

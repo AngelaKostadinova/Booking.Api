@@ -21,10 +21,11 @@ builder.Services.AddScoped<IExternalApiService, ExternalApiService>();
 
 // Register IManagerFactory and its implementation
 builder.Services.AddScoped<IBookingManagerFactory, BookingManagerFactory>();
-
-// Add these lines after the existing service registrations
 builder.Services.AddSingleton<ISearchRepository, InMemorySearchRepository>();
 builder.Services.AddSingleton<IBookingRepository, InMemoryBookingRepository>();
+
+// Register validators
+builder.Services.AddTransient<ISearchRequestValidator, SearchRequestValidator>();
 
 builder.Services.AddScoped<HotelOnlyManager>();
 

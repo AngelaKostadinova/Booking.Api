@@ -4,6 +4,7 @@ using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Application.Services.WebApi.Services;
 using System.Security.Cryptography;
+using Booking.Application.Utils;
 
 namespace Booking.Application.Services
 {
@@ -24,7 +25,7 @@ namespace Booking.Application.Services
             {
                 Options = hotels.Select(h => new Option
                 {
-                    OptionCode = Guid.NewGuid().ToString(),
+                    OptionCode = CodeGenerator.GenerateCode(),
                     HotelCode = h.HotelCode.ToString(),
                     FlightCode = string.Empty,
                     ArrivalAirport = request.Destination,

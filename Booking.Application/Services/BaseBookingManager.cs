@@ -3,6 +3,7 @@ using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
 using Booking.Application.Repositories;
 using Booking.Domain.Enums;
+using Booking.Application.Utils;
 
 namespace Booking.Application.Services
 {
@@ -36,10 +37,9 @@ namespace Booking.Application.Services
 
             public async Task<BookResponse> Book(BookRequest request)
             {
-                // Verify the option exists
                 var option = await _searchRepository.GetOptionByCodeAsync(request.OptionCode);
 
-                var bookingCode = GenerateBookingCode();
+                var bookingCode = CodeGenerator.GenerateCode();
                 var sleepTime = Random.Shared.Next(30, 60);
 
                 var bookingInfo = new BookingInfo
@@ -78,13 +78,6 @@ namespace Booking.Application.Services
                 await _bookingRepository.UpdateBookingStatusAsync(booking.BookingCode, newStatus);
 
                 return new CheckStatusResponse { Status = newStatus };
-            }
-
-            private string GenerateBookingCode()
-            {
-                const string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                return new string(Enumerable.Repeat(chars, 6)
-                    .Select(s => s[Random.Shared.Next(s.Length)]).ToArray());
             }
         }
     }

@@ -2,9 +2,11 @@
 using Booking.Application.DTOs.Responses;
 using Booking.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Booking.Api.Authorization;
 
 namespace Booking.Api.Controllers
 {
+    [ApiKey]
     [Route("api/[controller]")]
     [ApiController]
     public class BookController : ControllerBase

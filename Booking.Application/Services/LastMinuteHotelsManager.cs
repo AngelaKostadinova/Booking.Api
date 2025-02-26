@@ -14,9 +14,9 @@ namespace Booking.Application.Services
         {
         }
 
-        public override async Task<SearchResponse> Search(SearchRequest request)
+        protected override async Task<SearchResponse> PerformSearch(SearchRequest request)
         {
-            var result = await base.Search(request);
+            var result = await base.PerformSearch(request);
 
             // Apply last minute discount
             foreach (var option in result.Options)
